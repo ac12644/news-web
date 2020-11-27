@@ -1,47 +1,54 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "./AuthContext"
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
 
 export default function Login() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const { login } = useAuth()
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  async function handleSubmit(e) {
-    e.preventDefault()
+    const signIn = e => {
+        e.preventDefault();
 
-    try {
-      setError("")
-      setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
-    } catch {
-      setError("Failed to log in")
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(auth => {
+                history.push('/')
+            })
+            .catch(error => alert(error.message))
     }
 
-    setLoading(false)
-  }
+    const register = e => {
+        e.preventDefault();
+
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((auth) => {
+                // it successfully created a new user with email and password
+                if (auth) {
+                    history.push('/')
+                }
+            })
+            .catch(error => alert(error.message))
+    }
 
   return (
     <>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
+          
+          <Form>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
+              <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} />
             </Form.Group>
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
+              <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)}/>
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button className="w-100" type="submit" onClick={signIn}>
               Log In
             </Button>
           </Form>

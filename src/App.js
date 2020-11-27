@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { NewsContextProvider } from "./NewsContext";
 import { NewsTechProvider } from "./NewsTech";
 import { NewsBusinessProvider } from "./NewsBusiness";
@@ -6,7 +7,6 @@ import { NewsEntertainProvider } from "./NewsEntertain";
 import { NewsSportsProvider } from "./NewsSports";
 import { NewsHealthProvider } from "./NewsHealth";
 import { NewsScienceProvider } from "./NewsScience";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SubHeader from "./SubHeader";
 import News from "./News";
 import NewsT from "./NewsT";
@@ -20,7 +20,7 @@ import Header from "./Header";
 import SignIn from "./SignIn";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
-import SignUp from "./SignUp";
+
 
 function App() {
 
@@ -37,17 +37,17 @@ function App() {
 
         dispatch({
           type: "SET_USER",
-          user: authUser
-        })
+          user: authUser,
+        });
       } else {
         // the user is logged out
         dispatch({
           type: "SET_USER",
-          user: null
-        })
+          user: null,
+        });
       }
-    })
-  }, [])
+    });
+  }, []);
 
   
 
@@ -63,12 +63,7 @@ function App() {
                 <SignIn/>
                 
               </Route>
-              <Route path ="/signup">
-
-                <SignUp/>
-                
-              </Route>
-
+             
              
               <Route path ="/all_news">
                   <SubHeader/>
