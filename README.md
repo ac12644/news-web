@@ -1,3 +1,8 @@
+[https://news-e7493.web.app/](News-Web Firebase)
+[https://ac12644.github.io/news-web/](News-Web Github)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
