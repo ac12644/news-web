@@ -1,5 +1,5 @@
-##[News-Web Firebase](https://news-e7493.web.app/)
-##[News-Web Github](https://ac12644.github.io/news-web/)
+## Deployed on Firebase [News-Web](https://news-e7493.web.app/)
+## Deployed on Github [News-Web](https://ac12644.github.io/news-web/)
 
 
 
