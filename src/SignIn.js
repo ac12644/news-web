@@ -57,17 +57,21 @@ class GoogleBtn extends Component {
           buttonText='Logout'
           onLogoutSuccess={ this.logout }
           onFailure={ this.handleLogoutFailure }
-        >
-        </GoogleLogout>: <GoogleLogin
+          render={renderProps => (
+            <Button onClick={renderProps.onClick} size="small">Logout</Button>)}
+        />
+           : <GoogleLogin
           clientId={ CLIENT_ID }
           buttonText='Login'
           onSuccess={ this.login }
           onFailure={ this.handleLoginFailure }
           cookiePolicy={ 'single_host_origin' }
           responseType='code,token'
+          render={renderProps => (
+            <Button onClick={renderProps.onClick}size="small">Login</Button>)}
         />
       }
-      { this.state.accessToken ? <h5>Your Access Token: <br/><br/> { this.state.accessToken }</h5> : null }
+      
 
     </div>
     )
