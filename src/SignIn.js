@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useHistory} from 'react-router-dom';
 import {auth} from "./firebase";
+import { toast } from 'react-toastify';
 
 function Copyright() {
   return (
@@ -51,33 +52,11 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const signIn = e => {
-        e.preventDefault();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-        auth
-            .signInWithEmailAndPassword(email, password)
-            .then(auth => {
-                history.push('/')
-            })
-            .catch(error => alert(error.message))
-    }
-
-    const register = e => {
-        e.preventDefault();
-
-        auth
-            .createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-                // it successfully created a new user with email and password
-                if (auth) {
-                    history.push('/')
-                }
-            })
-            .catch(error => alert(error.message))
-    }
+  
 
 
 
@@ -98,6 +77,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
+            type="email"
             value= {email}
             onChange={e => setEmail(e.target.value)}
             label="Email Address"
@@ -128,7 +108,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={signIn}
+           
           >
             Sign In
           </Button>
@@ -138,7 +118,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={register}
+            
           >
             Sign Up
           </Button>

@@ -4,8 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-
-
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -82,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
- function NewsArt({data}) {
+ function NewsArt({ title, urlToImage, description, url, publishedAt, author}) {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -91,26 +89,25 @@ const useStyles = makeStyles((theme) => ({
 
       <CardMedia
         className={classes.cover}
-        image={data.urlToImage}
+        image={urlToImage}
         
       />
 
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h6" variant="h6" className={classes.title}>
-            {data.title}
+            {title}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary" className={classes.desc}>
-            {data.description}<span onClick={(e) => {
-        e.preventDefault();
-        window.location.href=data.url;}}><Button size="small" className={classes.button} >continue reading...</Button></span>
+            {description}<span onClick={(e) => { e.preventDefault(); window.location.href={url};}}>
+          <Button size="small" className={classes.button} >continue reading...</Button></span>
           </Typography>
           <div className= {classes.cardFooter}>
           <Typography variant="subtitle2" color="textSecondary" className={classes.date}>
-          {data.publishedAt}
+          {publishedAt}
           </Typography>
           <Typography variant="subtitle2" color="textSecondary" className={classes.date}>
-          {data.author}
+          {author}
           </Typography>
 
           </div>

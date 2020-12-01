@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -12,13 +12,16 @@ import { auth } from "./firebase";
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    justifyContent: 'space-evenly',
   },
   toolbarTitle: {
     flex: 1,
     fontWeight: '600',
+    
     [theme.breakpoints.down('sm')]: {
       fontSize: '20px',
-      justifyContent: 'center',
+    
+      
      
     },
   },
@@ -29,16 +32,8 @@ const useStyles = makeStyles((theme) => ({
 
  function Header() {
   const classes = useStyles();
-  const history = useHistory();
 
-  const user= useStateValue();
-  const dispatch = useStateValue();
-
-  const handleAuthenticaton = () => {
-    if (user) {
-      auth.signOut();
-    }
-  }
+  
   
 
   return (
@@ -50,18 +45,13 @@ const useStyles = makeStyles((theme) => ({
           variant="h5"
           color="inherit"
           align="center"
-          href="/"
+          
           noWrap
           className={classes.toolbarTitle}
         >
       News Web
         </Typography>
-        <Link to={!user && '/signin'}>
-          <div onClick={handleAuthenticaton} className="header__option">
-            
-            <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
-          </div>
-        </Link>
+        <Button size="small" href="/signin">Sign In</Button>
 
       </Toolbar>
      

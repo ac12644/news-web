@@ -25,7 +25,8 @@ const sections = [
     { title: 'Sports', url: '/sports_news' },
     { title: 'Health', url: '/health_news' },
     { title: 'Science', url: '/science_news' },
-    { title: 'Travel', url: '#' },
+   
+   
   ];
 function SubHeader() {
     const classes = useStyles(); 
