@@ -10,7 +10,7 @@ import EntertainmentNews from "./components/EntertainmentNews";
 import SportNews from "./components/SportNews";
 import ScienceNews from "./components/ScienceNews";
 import HealthNews from "./components/HealthNews";
-import SignIn from "./SignIn";
+
 
 
 
@@ -25,9 +25,7 @@ function App() {
          
           <Switch>
 
-              <Route path ="/signin">
-                <SignIn/>
-              </Route>
+             
              
               <Route path ="/all_news">
                   <SubHeader/>

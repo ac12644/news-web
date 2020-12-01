@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import GoogleBtn from './SignIn';
 
 
 
@@ -49,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
         >
       News Web
         </Typography>
-        <Button size="small" href="/signin">Sign In</Button>
+         <GoogleBtn/>
+        
 
       </Toolbar>
      
