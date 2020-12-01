@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "./App.css";
 import Header from "./Header";
 import SubHeader from "./SubHeader";
-import AllNews from "./AllNews";
-import TechNews from "./TechNews";
-import BusinessNews from "./BusinessNews";
-import EntertainmentNews from "./EntertainmentNews";
-import SportNews from "./SportNews";
-import ScienceNews from "./ScienceNews";
-import HealthNews from "./HealthNews";
+import AllNews from "./components/AllNews";
+import TechNews from "./components/TechNews";
+import BusinessNews from "./components/BusinessNews";
+import EntertainmentNews from "./components/EntertainmentNews";
+import SportNews from "./components/SportNews";
+import ScienceNews from "./components/ScienceNews";
+import HealthNews from "./components/HealthNews";
 import SignIn from "./SignIn";
 
 
 
 function App() {
+
  
 
   return (

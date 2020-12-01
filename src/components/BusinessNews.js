@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from "react";
-import NewsArt from "./NewsArt";
+import NewsArt from "../NewsArt";
 import axios from "axios";
+
 
 
 
@@ -19,6 +20,8 @@ function BusinessNews() {
  
     fetchData();
   }, []);
+
+    
 
   return (
     <div>

@@ -1,17 +1,15 @@
 import React, {useState, useEffect } from "react";
-import NewsArt from "./NewsArt";
+import NewsArt from "../NewsArt";
 import axios from "axios";
 
 
-
-function EntertainmentNews() {
-
+function TechNews() {
   const [data, setData] = useState({ articles: [] });
  
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=09a334ba3fbe41acaff79515476dc4cc',
+        'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=09a334ba3fbe41acaff79515476dc4cc',
       );
  
       setData(result.data);
@@ -22,7 +20,6 @@ function EntertainmentNews() {
 
   return (
     <div>
-     
       <ul>
       {data.articles.map(item => (
               <NewsArt 
@@ -36,9 +33,9 @@ function EntertainmentNews() {
             ))}
 
             </ul>
-   
     </div>
+
   );
 }
 
-export default EntertainmentNews;
+export default TechNews;

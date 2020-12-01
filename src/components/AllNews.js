@@ -1,16 +1,18 @@
 import React, {useState, useEffect } from "react";
-import NewsArt from "./NewsArt";
+import NewsArt from "../NewsArt";
 import axios from "axios";
 
 
-function HealthNews() {
+
+function AllNews(props) {
+  
 
   const [data, setData] = useState({ articles: [] });
  
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=09a334ba3fbe41acaff79515476dc4cc',
+        'https://newsapi.org/v2/top-headlines?country=us&apiKey=09a334ba3fbe41acaff79515476dc4cc',
       );
  
       setData(result.data);
@@ -20,8 +22,8 @@ function HealthNews() {
   }, []);
 
   return (
+   
     <div>
-      
       <ul>
       {data.articles.map(item => (
               <NewsArt 
@@ -35,9 +37,10 @@ function HealthNews() {
             ))}
 
             </ul>
-   
+         
     </div>
+
   );
 }
 
-export default HealthNews;
+export default AllNews;
